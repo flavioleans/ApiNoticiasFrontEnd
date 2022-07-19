@@ -1,0 +1,32 @@
+<div class="conteudo-login">
+    <form class="conteudo-form" [formGroup]="loginForm" (submit)="submitLogin()">
+
+      <div class="logo">Logo</div>
+
+      <div>
+        <div>
+          <input class="input-login" placeholder="e-mail" formControlName="email"/>
+        </div>
+        <div class="mensagem-erro" *ngIf="loginForm.get('email')?.errors?.required && loginForm.get('email')?.touched">
+          Email Obrigatório!
+        </div>
+        <!-- <div class="mensagem-erro" *ngIf="loginForm.get('email')?.errors?.email && loginForm.get('email')?.touched">
+          Formato do email não é válido!
+        </div> -->
+      </div>
+
+      <div>
+        <div>
+          <input class="input-login" placeholder="senha" formControlName="senha" type="password"/>
+        </div>
+        <div class="mensagem-erro" *ngIf="loginForm.get('senha')?.errors?.required && loginForm.get('senha')?.touched">
+          Senha Obrigatória!
+        </div>
+      </div>
+
+      <div>
+        <button class="input-submit" [disabled]="!loginForm.valid">Logar</button>
+      </div>
+    </form>
+
+</div>
